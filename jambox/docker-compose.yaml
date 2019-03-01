@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  jambox:
+    build:
+      context: .
+    image: masonkatz/jambox
+    hostname: jambox
+    ports:
+      - "${JAMBOX_SSH_PORT:-2222}:22"
+    volumes:
+      - ${HOME}/.ssh/id_rsa.pub:/home/jam/.ssh/authorized_keys:ro
