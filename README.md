@@ -13,7 +13,7 @@ container, all you really need is an ssh server on your network.
 
 ## Jammer
 
-The Jammer is runs behind a firewallthat you cannot control. It uses
+The Jammer is runs behind a firewall that you cannot control. It uses
 a combination of autossh and socat to setup a tunnel from your jambox
 all the way back to the docker host (not the container) ssh daemon.
 
@@ -31,7 +31,8 @@ to use your own key for this do you?
 
 	$ ssh-keygen -t rsa -f ~/.ssh/jammer_rsa -N ''
 
-Create a `env` file in this directory to describe the jambox host and account.
+Create an `env` file in this directory to describe the jambox host and
+account. This files gets shared between both containers.
 
 	JAMBOX_USER=<username>
 	JAMBOX_HOST=<hostname>
@@ -44,19 +45,29 @@ predefined defaults.
 
 ### Jambox
 
-Start the jambox.
+#### Build
+
+	cd jambox
+	docker-compose build
+	
+#### Start
 
 	cd jambox
 	docker-compose up -d
 	
 ### Jammer
 
-Copy the above public key onto the jambox.
+#### Setup SSH
 
 	source env
 	ssh-copy-id -i ~/.ssh/jammer_rsa -p$JAMBOX_SSH_PORT $JAMBOX_USER@$JAMBOX_HOST
 
-Start the jammer.
+#### Build
+
+	cd jammer
+	docker-compose build
+
+#### Start
 
 	cd jammer
 	docker-compose up -d
