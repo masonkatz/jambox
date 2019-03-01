@@ -22,7 +22,7 @@ all the way back to the docker host (not the container) ssh daemon.
 The following diagram spells this out. Note the end result is the data
 flow from ssh on the "home server" to sshd on the "site server".
 
-![alt tag](jumpbox.png)
+![alt tag](jambox.png)
 
 ## Setup
 
