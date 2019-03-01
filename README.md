@@ -34,7 +34,7 @@ to use your own key for this do you?
 Create an `env` file in this directory to describe the jambox host and
 account. This files gets shared between both containers.
 
-	JAMBOX_USER=<username>
+	JAMBOX_PASSWORD=<password>
 	JAMBOX_HOST=<hostname>
 	JAMBOX_SSH_PORT=22
 	
@@ -59,8 +59,12 @@ predefined defaults.
 
 #### Setup SSH
 
+Copy the jammer public key into the jambox. You will be able to log in
+using the $JAMBOX_PASSWORD set above. Once the keys are there it is
+recommended to disable password-based logins into the jambox.
+
 	source env
-	ssh-copy-id -i ~/.ssh/jammer_rsa -p$JAMBOX_SSH_PORT $JAMBOX_USER@$JAMBOX_HOST
+	ssh-copy-id -i ~/.ssh/jammer_rsa -p$JAMBOX_SSH_PORT user@$JAMBOX_HOST
 
 #### Build
 
