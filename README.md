@@ -4,7 +4,7 @@ Jambox is a set of docker containers that makes it easy to setup your own ssh-ba
 
 ## Jambox
 
-The jambox sites on your own private network, so you will need to
+The jambox sits on your own private network, so you will need to
 configure your router to port forward to the ssh daemon inside the
 jambox. Jamboxes are more commonly known as jumpboxes.
 
@@ -13,8 +13,8 @@ container, all you really need is an ssh server on your network.
 
 ## Jammer
 
-The Jammer is runs behind a firewall that you cannot control. It uses
-a combination of autossh and socat to setup a tunnel from your jambox
+The Jammer runs behind a firewall that you cannot control. It uses a
+combination of autossh and socat to setup a tunnel from your jambox
 all the way back to the docker host (not the container) ssh daemon.
 
 ## Architecture
@@ -27,7 +27,7 @@ flow from ssh on the "home server" to sshd on the "site server".
 ## Setup
 
 Generate a new jammer-specific ssh key for the jammer, you don't want
-to use your own key for this do you?
+to use your own keys for this do you?
 
 	$ ssh-keygen -t rsa -f ~/.ssh/jammer_rsa -N ''
 
