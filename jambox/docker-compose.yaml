@@ -7,7 +7,7 @@ services:
     image: masonkatz/jambox
     hostname: jambox
     environment:
-      - JAMBOX_PASSWORD=${JAMBOX_PASSWORD}
+      - JAMBOX_PASSWORD="${JAMBOX_PASSWORD}"
     ports:
       - "${JAMBOX_SSH_PORT:-2222}:22"
     volumes:
