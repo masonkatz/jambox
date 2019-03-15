@@ -8,10 +8,8 @@ services:
     hostname: jammer
     environment:
       - JAMBOX_HOST=${JAMBOX_HOST}
-      - JAMBOX_USER=${JAMBOX_USER:-user}
-      - JAMBOX_SSH_PORT=${JAMBOX_SSH_PORT:-22}
-      - JAMBOX_PORT=${JAMBOX_PORT:-2222}
-      - JAMMER_PORT=${JAMMER_PORT:-2222}
+      - JAMBOX_USER=${JAMBOX_USER:-jb}
+      - JAMBOX_IN1=${JAMBOX_IN1:-22}
     volumes:
       - ${HOME}/.ssh/jammer_rsa:/home/user/.ssh/id_rsa:ro
       - ${HOME}/.ssh/jammer_rsa.pub:/home/user/.ssh/id_rsa.pub:ro

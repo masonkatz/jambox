@@ -8,12 +8,11 @@ echo
 echo
 echo
 
+connect="autossh -M 0 -N -oStrictHostKeyChecking=no -p${JAMBOX_IN1} -R3128:localhost:3128 -R2222:localhost:2222 ${JAMBOX_USER}@${JAMBOX_HOST}"
 
-connect="autossh -M 0 -N -oStrictHostKeyChecking=no -p${JAMBOX_SSH_PORT} -R3128:localhost:3128 -R${JAMBOX_PORT}:localhost:${JAMMER_PORT} ${JAMBOX_USER}@${JAMBOX_HOST}"
+/usr/sbin/squid
 
-/usr/sbin/squid -N &
-
-socat tcp-listen:${JAMMER_PORT},fork tcp:host.docker.internal:22 &
+socat tcp-listen:2222,fork tcp:host.docker.internal:22 &
 
 while true; do
 	echo $connect
