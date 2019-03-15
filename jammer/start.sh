@@ -8,7 +8,7 @@ echo
 echo
 echo
 
-connect="autossh -M 0 -N -oStrictHostKeyChecking=no -p${JAMBOX_IN1} -R3128:localhost:3128 -R2222:localhost:2222 ${JAMBOX_USER}@${JAMBOX_HOST}"
+connect="autossh -M 0 -N -oStrictHostKeyChecking=no -p${JAMBOX_IN1} -R3128:localhost:3128 -R${JAMBOX_OUT}:localhost:2222 ${JAMBOX_USER}@${JAMBOX_HOST}"
 
 /usr/sbin/squid
 
@@ -16,7 +16,7 @@ socat tcp-listen:2222,fork tcp:host.docker.internal:22 &
 
 while true; do
 	echo $connect
-	runuser -l user -c "$connect"
+	runuser -l jb -c "$connect"
 	sleep 60
 done
 

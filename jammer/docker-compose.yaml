@@ -10,7 +10,8 @@ services:
       - JAMBOX_HOST=${JAMBOX_HOST}
       - JAMBOX_USER=${JAMBOX_USER:-jb}
       - JAMBOX_IN1=${JAMBOX_IN1:-22}
+      - JAMBOX_OUT=${JAMBOX_OUT:-2222}
     volumes:
-      - ${HOME}/.ssh/jammer_rsa:/home/user/.ssh/id_rsa:ro
-      - ${HOME}/.ssh/jammer_rsa.pub:/home/user/.ssh/id_rsa.pub:ro
+      - ${HOME}/.ssh/jammer_rsa:/home/jb/.ssh/id_rsa:ro
+      - ${HOME}/.ssh/jammer_rsa.pub:/home/jb/.ssh/id_rsa.pub:ro
     restart: always
