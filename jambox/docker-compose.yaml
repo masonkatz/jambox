@@ -9,6 +9,5 @@ services:
     environment:
       - JAMBOX_PASSWORD=${JAMBOX_PASSWORD}
     ports:
-      - "${JAMBOX_SSH_PORT:-2222}:22"
-    volumes:
-      - ${HOME}/.ssh/id_rsa.pub:/home/jam/.ssh/authorized_keys:ro
+      - "${JAMBOX_OUT:-2222}:22"
+      - "3128:3128"
