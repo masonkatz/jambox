@@ -8,6 +8,14 @@ services:
     hostname: jambox
     environment:
       - JAMBOX_PASSWORD=${JAMBOX_PASSWORD}
+      - JAMBOX_USER=${JAMBOX_USER:-jam}
     ports:
-      - "${JAMBOX_OUT:-2222}:22"
+      - "${JAMBOX_IN2:-2222}:22"
       - "3128:3128"
+      - "${JAMBOX_OUT:-3129}:3129"
+    volumes:
+      - jambox-config:/config
+
+volumes:
+  jambox-config:
+    external: true
