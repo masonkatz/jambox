@@ -78,10 +78,10 @@ recommended to disable password-based logins into the jambox.
 
 ## Using
 
-From your home server you can ssh directly to the jambox (as user
-"jam") on port JAMBOX_IN1 (default=2222). But, you can also connect on
-port JAMBOX_IN3 (default=2200) and this will route all the way back to
-your site site.
+From your home server you can ssh directly to the jambox as the
+JAMBOX_USER (default=jam) on port JAMBOX_IN1 (default=2222). But, you
+can also connect on port JAMBOX_IN3 (default=2200) and this will route
+all the way back to your site site.
 
 The jambox also exposed port 3128 to be used as a webproxy.
 
