@@ -1,6 +1,7 @@
 # Jambox
 
-Jambox is a set of docker containers that makes it easy to setup your own ssh-based vpn.
+Jambox is a set of docker containers that makes it easy to setup your
+own ssh-based vpn.
 
 ## Jambox
 
