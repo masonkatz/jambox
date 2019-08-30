@@ -9,14 +9,13 @@ The jambox sits on your own private network, so you will need to
 configure your router to port forward to the ssh daemon inside the
 jambox. Jamboxes are more commonly known as jumpboxes.
 
-Strictly speaking in this setup you don't need to run the jambox
-container, all you really need is an ssh server on your network.
-
 ## Jammer
 
 The Jammer runs behind a firewall that you cannot control. It uses a
 combination of autossh and socat to setup a tunnel from your jambox
 all the way back to the docker host (not the container) ssh daemon.
+
+Make sure you enable sshd on your host.
 
 ## Architecture
 
@@ -78,11 +77,12 @@ recommended to disable password-based logins into the jambox.
 	docker-compose up -d
 
 ## Using
-	
-From you $JAMBOX_HOST (default is 2222) you can ssh to your "site
-server" behind the firewall.
 
-	ssh -p $JAMBOX_PORT <username>@localhost
+From your home server you can ssh directly to the jambox (as user
+"jam") on port JAMBOX_IN1 (default=2222). But, you can also connect on
+port JAMBOX_IN3 (default=2200) and this will route all the way back to
+your site site.
 
+The jambox also exposed port 3128 to be used as a webproxy.
 
 
