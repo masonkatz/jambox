@@ -37,5 +37,6 @@ ln -s $CFGDIR/home /home
 useradd $JAMBOX_USER
 echo $JAMBOX_PASSWORD | passwd $JAMBOX_USER --stdin
 
+socat tcp-listen:${JAMBOX_IN3},fork tcp:localhost:$JAMBOX_OUT &
 
 /usr/sbin/sshd -D -e

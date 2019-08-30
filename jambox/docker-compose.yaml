@@ -9,10 +9,12 @@ services:
     environment:
       - JAMBOX_PASSWORD=${JAMBOX_PASSWORD}
       - JAMBOX_USER=${JAMBOX_USER:-jam}
+      - JAMBOX_IN3=${JAMBOX_IN3:-2200}
+      - JAMBOX_OUT=${JAMBOX_OUT:-3129}
     ports:
       - "${JAMBOX_IN2:-2222}:22"
+      - "${JAMBOX_IN3:-2200}:${JAMBOX_IN3:-2200}"
       - "3128:3128"
-      - "${JAMBOX_OUT:-3129}:3129"
     volumes:
       - jambox-config:/config
 
