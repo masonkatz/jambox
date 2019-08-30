@@ -16,7 +16,7 @@ socat tcp-listen:3129,fork tcp:host.docker.internal:22 &
 
 while true; do
 	echo $connect
-	runuser -l jb -c "$connect"
+	runuser -l jam -c "$connect"
 	sleep 60
 done
 
